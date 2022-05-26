@@ -1,5 +1,6 @@
 package com.aim.android.hellocr;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -17,6 +18,7 @@ import com.aim.android.hellocr.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //Begin of Intent
+        Uri uri = getIntent().getData();
+        if(uri!=null){
+            String path = uri.toString();
+            Toast.makeText(MainActivity.this, "Link = " + path, Toast.LENGTH_SHORT).show();
+        }
+        //End of Intent
     }
 
     @Override
